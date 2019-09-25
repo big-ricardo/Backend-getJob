@@ -1,6 +1,7 @@
 const axios = require('axios')
 const Dev = require('../model/Dev')
 const Vaga = require('../model/Vaga')
+const List = require('./listItems')
 
 module.exports = {
 
@@ -15,7 +16,9 @@ module.exports = {
                 { _id: { $nin: loggedUser.deslikes } },
             ],
         })
-        return res.json(devs)
+
+        let resul = await List.listItems(devs, req.query.pg, req.query.vs)
+        return res.json(resul)
     },
 
     async store(req, res) {

@@ -35,4 +35,34 @@ router.get('/vags', VagaControler.index)
 router.post('/vags/:empId/likes', LikeControlerDev.store)
 router.post('/vags/:empId/deslikes', DeslikeControlerDev.store)
 
+router.get('/teste', (req,res) => {
+    let itens = []
+    
+    for(i =0; i<10; i++){
+        itens[i] = i
+    }
+
+    function listItems(items, pageActual, limitItems){
+        let result = [];
+        let totalPage = Math.ceil( items.length / limitItems );
+        let count = ( pageActual * limitItems ) - limitItems;
+        let delimiter = count + limitItems;
+        
+        if(pageActual <= totalPage){
+            for(let i=count; i<delimiter; i++){
+                if(items[i] != null){
+                    result.push(items[i]);
+                }
+                count++;
+            }
+        }
+    
+        return result;
+    };
+
+    let resul = listItems(itens, req.query.v, 2)
+
+    return res.json({mess: resul})
+})
+
 module.exports = router;
