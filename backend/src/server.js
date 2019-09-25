@@ -28,4 +28,4 @@ httpserver.use(express.json())
 httpserver.use(routes);
 httpserver.use('/image', express.static(path.resolve(__dirname, '..' , 'uploads')))
 
-server.listen(3333);
+server.listen(process.env.PORT || 3333);
