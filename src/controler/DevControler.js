@@ -58,7 +58,8 @@ module.exports = {
         const { user } = req.headers
 
         const devs = await Vaga.find({matchs: user})
-        return res.json(devs)
+        let resul = await List.listItems(devs, req.query.pg, req.query.vs)
+        return res.json(resul)
     },
 
     async dev(req,res){

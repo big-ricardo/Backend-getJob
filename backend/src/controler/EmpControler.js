@@ -6,7 +6,8 @@ module.exports = {
     async index(req, res) {
         const { user } = req.headers
         const users = await Vaga.find({ idEmp: user })
-        return res.json(users)
+        let resul = await List.listItems(users, req.query.pg, req.query.vs)
+        return res.json(resul)
     },
 
 
