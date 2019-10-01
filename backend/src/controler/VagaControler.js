@@ -55,7 +55,11 @@ module.exports = {
 
         const {user} = req.headers
         const emp = await Vaga.findById(user)
-        return res.json(emp)
+        if(emp){
+            return res.json(emp)
+        }else{
+            return res.json({erro: "Sem user"})
+        }
     }
 
 }

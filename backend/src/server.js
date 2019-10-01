@@ -11,6 +11,7 @@ const connectedUsers = {};
 io.on('connection', socket => {
     const {user} = socket.handshake.query
     connectedUsers[user] = socket.id
+    console.log('novo', socket.id)
 })
 
 mougoose.connect('mongodb+srv://root:pitoco1569@cluster0-m2l22.mongodb.net/oministack?retryWrites=true&w=majority', {

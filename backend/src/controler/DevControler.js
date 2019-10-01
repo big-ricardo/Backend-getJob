@@ -66,7 +66,12 @@ module.exports = {
 
         const {user} = req.headers
         const dev = await Dev.findById(user)
-        return res.json(dev)
+        if(dev){
+            return res.json(dev)
+        }else{
+            return res.json({erro: "Sem user"})
+        }
+        
     }
 
 }

@@ -40,7 +40,7 @@ module.exports = {
                 senha
             })
 
-            const avat = 'localhost:3333/image/' + emp.avatar
+            const avat = 'https://getjobserver.herokuapp.com/image/' + emp.avatar
             emp.avatar = avat
             console.log(avat)
             return res.json(emp)

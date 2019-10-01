@@ -8,6 +8,7 @@ const multerConfig = require('../src/model/multer')
 const ImageControler = require('./controler/ImageControler')
 const EmpControler = require('./controler/EmpControler')
 const VagaControler = require('./controler/VagaControler')
+const MessageControler = require('./controler/MessageControler')
 
 const LikeControlerDev = require('./controler/LikeControlerDev')
 const DeslikeControlerDev = require('./controler/DeslikeControlerDev')
@@ -34,6 +35,8 @@ router.post('/vags', VagaControler.store)
 router.get('/vags', VagaControler.index)
 router.post('/vags/:empId/likes', LikeControlerDev.store)
 router.post('/vags/:empId/deslikes', DeslikeControlerDev.store)
+
+router.post('/mess/:Id', MessageControler.store)
 
 router.get('/teste', (req,res) => {
     let itens = []
