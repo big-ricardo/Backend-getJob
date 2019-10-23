@@ -37,6 +37,7 @@ router.post('/vags/:empId/likes', LikeControlerDev.store)
 router.post('/vags/:empId/deslikes', DeslikeControlerDev.store)
 
 router.post('/mess/:Id', MessageControler.store)
+router.get('/mess/:Id', MessageControler.index)
 
 router.get('/teste', (req,res) => {
     let itens = []

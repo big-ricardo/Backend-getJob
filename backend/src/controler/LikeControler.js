@@ -1,5 +1,6 @@
 const Dev = require('../model/Dev')
 const Vaga = require('../model/Vaga')
+const mns = require('../model/Mensagem')
 
 module.exports = {
     async store(req, res) {
@@ -21,6 +22,11 @@ module.exports = {
             loggedVag.matchs.push(targetDev)
             targetDev.matchs.push(loggedVag)
             targetDev.save()
+
+            await mns.create({
+                idEmp:user,
+                idDev: devId
+            })
 
             if(loggedSocket){
                 req.io.to(loggedSocket).emit('match', targetDev)
