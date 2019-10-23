@@ -1,7 +1,8 @@
 module.exports = {
 
-    async listItems(items, pageActual, limitItemns){
+    async listItems(item, pageActual, limitItemns){
         limitItems = Math.ceil(limitItemns)
+		items = item.reverse()
         if(pageActual && limitItems){
             let result = [];
         const totalPage = Math.ceil( items.length / limitItems );
