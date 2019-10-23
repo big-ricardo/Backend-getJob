@@ -1,6 +1,7 @@
 module.exports = {
 
-    async listItems(items, pageActual, limitItemns){
+    async listItems(itemsV, pageActual, limitItemns){
+        items = itemsV.reverse()
         limitItems = Math.ceil(limitItemns)
         if(pageActual && limitItems){
             let result = [];

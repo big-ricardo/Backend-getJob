@@ -31,18 +31,15 @@ module.exports = {
             }
         }else{
             const { user,cidade, email, avatar,senha} = req.body
-
+            const avat = 'https://getjobserver.herokuapp.com/image/' + avatar
             const emp = await Emp.create({
                 user,
-                avatar,
+                avatar: avat,
                 cidade,
                 email,
                 senha
             })
 
-            const avat = 'https://getjobserver.herokuapp.com/image/' + emp.avatar
-            emp.avatar = avat
-            console.log(avat)
             return res.json(emp)
         }
     },
