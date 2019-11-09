@@ -14,10 +14,11 @@ module.exports = {
             $and: [
                 { _id: { $nin: loggedUser.likes } },
                 { _id: { $nin: loggedUser.deslikes } },
+                { aberto: true}
             ],
         })
 
-        let resul = await List.listItems(vagas, req.query.pg, req.query.vs)
+        let resul = await List.listItems(vagas.reverse(), req.query.pg, req.query.vs)
         return res.json(resul)
     },
 
@@ -38,9 +39,15 @@ module.exports = {
             avatar,
             cidade,
             emailContato:emailC,
-            
+            aberto: true
         })
 
+        return res.json(vaga)
+    },
+
+    async fechar(req,res){
+        const { vagId } = req.params
+        const vaga = await Vaga.findByIdAndUpdate(vagId, {$set: {aberto: false}}, {new: true})
         return res.json(vaga)
     },
 

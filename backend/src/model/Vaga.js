@@ -11,6 +11,10 @@ const VagSchema = new Schema({
         type: String,
         require: true,
     },
+    aberto: {
+        type: Boolean,
+        require: true,
+    },
     user: {
         type: String,
         require: true,
