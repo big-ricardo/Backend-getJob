@@ -54,7 +54,7 @@ module.exports = {
     async matchs(req, res){
         const { user } = req.headers
         const devs = await Dev.find({matchs: user})
-        let resul = await List.listItems(devs, req.query.pg, req.query.vs)
+        let resul = await List.listItems(devs.reverse(), req.query.pg, req.query.vs)
         return res.json(resul)
     },
 

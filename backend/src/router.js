@@ -9,6 +9,7 @@ const ImageControler = require('./controler/ImageControler')
 const EmpControler = require('./controler/EmpControler')
 const VagaControler = require('./controler/VagaControler')
 const MessageControler = require('./controler/MessageControler')
+const MeuSite = require("./controler/MeuSite")
 
 const LikeControlerDev = require('./controler/LikeControlerDev')
 const DeslikeControlerDev = require('./controler/DeslikeControlerDev')
@@ -40,5 +41,8 @@ router.post('/mess/:Id', MessageControler.store)
 router.get('/mess/:Id', MessageControler.index)
 
 router.put('/vags/:vagId', VagaControler.fechar)
+
+router.get('/falei', MeuSite.index)
+router.post('/fale', MeuSite.store)
 
 module.exports = router;
