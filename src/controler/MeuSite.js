@@ -3,13 +3,13 @@ const Mens = require('../model/FaleConosco')
 module.exports = {
 
     async store(req, res) {
-        const { nome, email, cidade, mensagen } = req.body;
+        const { nome, email, cidade, mensagem } = req.body;
 
         const fale = await Mens.create({
             nome,
             email,
             cidade,
-            mensagen,
+            mensagem,
             m: 1
         })
 
